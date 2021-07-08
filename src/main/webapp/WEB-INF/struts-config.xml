@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 1.3//EN" 
+"http://jakarta.apache.org/struts/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="helloWorldForm" 
+			type="helloWorld.form.HelloWorldForm"/>
+		<form-bean name="signupForm"
+				   type="signup.form.SignupForm"/>
+	</form-beans>
+
+	<action-mappings>
+		<action path="/registerform"
+			type="helloWorld.action.HelloWorldAction"
+			name="helloWorldForm">
+			<forward name="success" path="/registerform.jsp"/>
+		</action>
+
+		<action path="/signup"
+				type="signup.action.SignupAction"
+				name="signupForm">
+			<forward name="success" path="/useracc.jsp"/>
+			<forward name="error" path="/registerform.jsp"/>
+
+		</action>
+
+	</action-mappings>
+
+</struts-config>
